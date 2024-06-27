@@ -17,6 +17,3 @@ const options = {
 };
 
 flatpickr(timerRefs.inputEl, options);
-
-// timerRefs.buttonEl.setAttribute('disabled', true);
-// timerRefs.buttonEl.removeAttribute('disabled');

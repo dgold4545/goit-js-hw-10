@@ -1,9 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital@0;1&display=swap');
 * {
   box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
 }
 .timer-section {
   margin: 36px 156px;
+}
+
+h1 {
+  margin-left: 156px;
 }
 
 .input-wrapper {
@@ -17,10 +22,30 @@
   gap: 24px;
 }
 input {
-  border-radius: 4px;
   width: 272px;
   height: 40px;
+  padding: 8px 16px;
+  border-radius: 4px;
   background-color: #fff;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+  color: #2e2f42;
+  border-color: #808080;
+}
+
+input:hover {
+  border-color: #2e2f42;
+}
+
+input:focus {
+  box-shadow: 1px 1px 2px 0 red;
+}
+
+input:disabled {
+  background-color: #fafafa;
+  color: #808080;
 }
 
 button {
@@ -30,7 +55,6 @@ button {
   height: 40px;
   background: #4e75ff;
   border: transparent;
-  font-family: 'Montserrat', sans-serif;
   font-weight: 500;
   font-size: 16px;
   line-height: 1.5;
@@ -50,7 +74,6 @@ button:hover {
   display: flex;
   flex-direction: column;
   align-items: center;
-  font-family: 'Montserrat', sans-serif;
   color: #2e2f42;
 }
 
@@ -64,3 +87,7 @@ button:hover {
   font-size: 16px;
   line-height: 1.5;
 }
+
+/* .open {
+  background-color: #666666;
+} */
