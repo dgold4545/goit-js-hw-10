@@ -12,10 +12,10 @@ import { timerRefs } from './timer-refs.js/timerRefs';
 import { addDisabled } from './timer-hellpers.js/addDisabled';
 import { removeDisabled } from './timer-hellpers.js/removeDisabled';
 import { convertMs } from './timer-hellpers.js/convertMs';
-
+// import { harlerBurronElClick } from './timer-hellpers.js/harlerBurronElClick';
 import { setTheTime } from './timer-hellpers.js/setTheTimer';
 
-let userSelectedDate = null;
+export let userSelectedDate = null;
 
 const options = {
   enableTime: true,
@@ -34,17 +34,31 @@ const options = {
         message: 'Please choose a date in the future',
         position: 'topRight',
       });
-      addDisabled(timerRefs);
     } else {
-      removeDisabled(timerRefs);
+      removeDisabled(timerRefs.buttonEl);
+      addDisabled(timerRefs.inputEl);
     }
-
-    const da = setInterval(() => {
-      setTheTime(convertMs(userSelectedDate - new Date()), timerRefs);
-    }, 1000);
-
-    // clearInterval(da);
   },
 };
+
+timerRefs.buttonEl.addEventListener('click', harlerBurronElClick);
+
+export function harlerBurronElClick() {
+  const da = setInterval(() => {
+    setTheTime(convertMs(userSelectedDate - new Date()), timerRefs);
+
+    if (
+      timerRefs.dataEl.textContent === '00' &&
+      timerRefs.daysEl.textContent === '00' &&
+      timerRefs.minutesEl.textContent === '00' &&
+      timerRefs.secondsEl.textContent === '00'
+    ) {
+      clearInterval(da);
+    }
+  }, 1000);
+  addDisabled(timerRefs.buttonEl);
+}
+
+addDisabled(timerRefs.buttonEl);
 
 flatpickr(timerRefs.inputEl, options);

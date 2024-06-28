@@ -1,3 +1,3 @@
-export function addDisabled(refsElement) {
-  refsElement.buttonEl.setAttribute('disabled', true);
+export function addDisabled(refsEl) {
+  refsEl.setAttribute('disabled', true);
 }

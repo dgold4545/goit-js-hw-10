@@ -1,3 +1,3 @@
-export function removeDisabled(refsElement) {
-  refsElement.buttonEl.removeAttribute('disabled');
+export function removeDisabled(refsEl) {
+  refsEl.removeAttribute('disabled');
 }
