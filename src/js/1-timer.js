@@ -29,9 +29,13 @@ const options = {
     if (userSelectedDate <= new Date()) {
       iziToast.error({
         title: 'Error',
-        position: 'topCenter',
+        titleColor: 'white',
         message: 'Please choose a date in the future',
-        position: 'topRight',
+        messageColor: 'white',
+        position: 'topCenter',
+        backgroundColor: '#ef4040',
+        progressBarColor: '#b51b1b',
+        iconUrl: '../img/error.svg',
       });
       addDisabled(timerRefs.buttonEl);
     } else {
