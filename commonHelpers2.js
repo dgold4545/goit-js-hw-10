@@ -1,0 +1,2 @@
+import"./assets/modulepreload-polyfill-3cfb730f.js";import"./assets/vendor-77e16229.js";const o={form:document.querySelector(".form"),inputEl:document.querySelector('[type="number"]'),button:document.querySelector('[type="submit"]')};o.form.addEventListener("submit",n);function n(e){e.preventDefault();const t=e.currentTarget[0].value;u(t).then(r=>console.log(r)).catch(r=>console.log(r))}function u(e){return new Promise((_,t)=>{setTimeout(()=>{t(`'_______${e}________________________reject'`)},e)})}
+//# sourceMappingURL=commonHelpers2.js.map
