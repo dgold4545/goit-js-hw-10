@@ -1,4 +1,4 @@
-import { timerRefs } from '../refs.js/timerRefs';
+import { timerRefs } from '../timer-refs.js/timerRefs';
 
 export function setTheTime({ days, hours, minutes, seconds }, timerRefs) {
   timerRefs.secondsEl.textContent = seconds;

@@ -8,11 +8,11 @@ import iziToast from 'izitoast';
 // Додатковий імпорт стилів
 import 'izitoast/dist/css/iziToast.min.css';
 
-import { timerRefs } from './refs.js/timerRefs';
-import { addDisabled } from './hellpers.js/addDisabled';
-import { removeDisabled } from './hellpers.js/removeDisabled';
-import { convertMs } from './hellpers.js/convertMs';
-import { setTheTime } from './hellpers.js/setTheTimer';
+import { timerRefs } from './timer-refs.js/timerRefs';
+import { addDisabled } from './timer-hellpers.js/addDisabled';
+import { removeDisabled } from './timer-hellpers.js/removeDisabled';
+import { convertMs } from './timer-hellpers.js/convertMs';
+import { setTheTime } from './timer-hellpers.js/setTheTimer';
 
 let userSelectedDate = null;
 
@@ -45,12 +45,5 @@ const options = {
     // clearInterval(da);
   },
 };
-
-// const da = setInterval(() => {
-
-//   setTheTime(convertMs(userSelectedDate - new Date()), timerRefs);
-// }, 1000);
-
-// // clearInterval(da);
 
 flatpickr(timerRefs.inputEl, options);
