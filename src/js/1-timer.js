@@ -58,7 +58,6 @@ function harlerBurronElClick() {
     ) {
       clearInterval(da);
       removeDisabled(timerRefs.inputEl);
-      // removeDisabled(timerRefs.buttonEl);
     }
   }, 1000);
   addDisabled(timerRefs.inputEl);
