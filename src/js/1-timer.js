@@ -12,6 +12,7 @@ import { timerRefs } from './refs.js/timerRefs';
 import { addDisabled } from './hellpers.js/addDisabled';
 import { removeDisabled } from './hellpers.js/removeDisabled';
 import { convertMs } from './hellpers.js/convertMs';
+import { setTheTime } from './hellpers.js/setTheTimer';
 
 let userSelectedDate = null;
 
@@ -37,16 +38,19 @@ const options = {
       removeDisabled(timerRefs);
     }
 
-    // const id = setInterval(() => {
-    //   console.log(convertMs(userSelectedDate - new Date()));
-    // }, 1000);
+    const da = setInterval(() => {
+      setTheTime(convertMs(userSelectedDate - new Date()), timerRefs);
+    }, 1000);
+
+    // clearInterval(da);
   },
 };
 
-const da = setInterval(() => {
-  console.log(convertMs(userSelectedDate - new Date()));
-}, 1000);
+// const da = setInterval(() => {
 
-clearInterval(da);
+//   setTheTime(convertMs(userSelectedDate - new Date()), timerRefs);
+// }, 1000);
+
+// // clearInterval(da);
 
 flatpickr(timerRefs.inputEl, options);
