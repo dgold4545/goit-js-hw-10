@@ -30,7 +30,8 @@ function handlerFormSubmit(event) {
           titleColor: 'white',
           messageColor: 'white',
           progressBarColor: '#326101',
-          iconUrl: '/img/ok.svg',
+          titleSize: '16px',
+          iconColor: '#fff',
         });
       })
       .catch(delayValue => {
@@ -42,7 +43,8 @@ function handlerFormSubmit(event) {
           messageColor: 'white',
           backgroundColor: '#ef4040',
           progressBarColor: '#b51b1b',
-          iconUrl: '/img/error.svg',
+          titleSize: '16px',
+          iconColor: '#fff',
         });
       });
   }, delayValue);
