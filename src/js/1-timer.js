@@ -37,11 +37,10 @@ const options = {
     } else {
       removeDisabled(timerRefs);
     }
+    const id = setInterval(() => {
+      console.log(convertMs(userSelectedDate - new Date()));
+    }, 1000);
   },
 };
 
 flatpickr(timerRefs.inputEl, options);
-
-const diff = userSelectedDate - Date.now();
-
-console.log(diff);
