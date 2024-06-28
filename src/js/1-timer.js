@@ -35,7 +35,7 @@ const options = {
         position: 'topCenter',
         backgroundColor: '#ef4040',
         progressBarColor: '#b51b1b',
-        iconUrl: '../img/error.svg',
+        iconUrl: './img/error.svg',
       });
       addDisabled(timerRefs.buttonEl);
     } else {
