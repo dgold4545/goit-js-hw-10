@@ -3,34 +3,35 @@ import iziToast from 'izitoast';
 // Додатковий імпорт стилів
 import 'izitoast/dist/css/iziToast.min.css';
 
-const snackbarRefs = {
-  form: document.querySelector('.form'),
-  inputEl: document.querySelector('[type="number"]'),
-  button: document.querySelector('[type="submit"]'),
-};
-
-snackbarRefs.form.addEventListener('submit', handlerFormSubmit);
+document.querySelector('.form').addEventListener('submit', handlerFormSubmit);
 
 function handlerFormSubmit(event) {
   event.preventDefault();
-  const currentValue = event.currentTarget;
 
-  const delayValue = currentValue[0].value;
+  const delayValue = document.querySelector('[name="delay"]').value;
+  const checkboxValue = document.querySelector('[name="state"]:checked').value;
 
-  createPromise(delayValue)
-    .then(value => console.log(value))
-    .catch(error => console.log(error));
-}
-
-function createPromise(delay) {
-  return new Promise((resolve, reject) => {
-    setTimeout(() => {
-      const ligth = false;
-      if (ligth) {
-        resolve(`'hello REsolVE'${delay}`);
+  const createPromise = setTimeout(() => {
+    const snackbarPromise = new Promise((resolve, reject) => {
+      if (checkboxValue === 'fulfilled') {
+        resolve(delayValue);
       } else {
-        reject(`'_______${delay}________________________reject'`);
+        reject(delayValue);
       }
-    }, delay);
-  });
+    });
+
+    snackbarPromise
+      .then(delayValue => {
+        iziToast.success({
+          position: 'topCenter',
+          message: `✅ Fulfilled promise in ${delayValue}ms`,
+        });
+      })
+      .catch(delayValue => {
+        iziToast.error({
+          position: 'topCenter',
+          message: `❌ Rejected promise in ${delayValue}ms`,
+        });
+      });
+  }, delayValue);
 }

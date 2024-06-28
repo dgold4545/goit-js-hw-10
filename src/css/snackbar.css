@@ -73,3 +73,7 @@ button {
   color: #fff;
   border: transparent;
 }
+
+button:hover {
+  background: #6c8cff;
+}
