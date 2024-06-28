@@ -12,10 +12,9 @@ import { timerRefs } from './timer-refs.js/timerRefs';
 import { addDisabled } from './timer-hellpers.js/addDisabled';
 import { removeDisabled } from './timer-hellpers.js/removeDisabled';
 import { convertMs } from './timer-hellpers.js/convertMs';
-// import { harlerBurronElClick } from './timer-hellpers.js/harlerBurronElClick';
 import { setTheTime } from './timer-hellpers.js/setTheTimer';
 
-export let userSelectedDate = null;
+let userSelectedDate = null;
 
 const options = {
   enableTime: true,
@@ -34,16 +33,16 @@ const options = {
         message: 'Please choose a date in the future',
         position: 'topRight',
       });
+      addDisabled(timerRefs.buttonEl);
     } else {
       removeDisabled(timerRefs.buttonEl);
-      addDisabled(timerRefs.inputEl);
     }
   },
 };
 
 timerRefs.buttonEl.addEventListener('click', harlerBurronElClick);
 
-export function harlerBurronElClick() {
+function harlerBurronElClick() {
   const da = setInterval(() => {
     setTheTime(convertMs(userSelectedDate - new Date()), timerRefs);
 
@@ -56,6 +55,7 @@ export function harlerBurronElClick() {
       clearInterval(da);
     }
   }, 1000);
+  addDisabled(timerRefs.inputEl);
   addDisabled(timerRefs.buttonEl);
 }
 
